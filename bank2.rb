@@ -41,8 +41,10 @@ class BankAccount  #creating a class does not need an = sign
 end
 
 jason=BankAccount.createbankaccount #we put BankAccount.createbankaccount because the computer would not know what to do with the class otherwise (i.e by appending the method to the class it knows the action it must take)
+puts jason.inspect #.inspect allows us to inspect the current state of whatever we are calling the inspection for 
+jason.deposit(1000) # (amount) in deposit or withdraw methods. ) (.deposit calls deposit method so it knows what to do with it)
+BankAccount.interest_time #(must be class.classmethod so that way the actual class will be checked.)
 puts jason.inspect
-jason.deposit(1000) # (amount) in deposit or withdraw methods. ) (.deposit calls deposit method so it knows what to do with it) 
+jason.withdraw(1500)
 puts jason.inspect
-
 # misc notes > for every if , do , def & class there must be an end. type its end right away and avoid insane amounts of errors.
