@@ -15,32 +15,39 @@
 # Once you're done, commit again!
 
 class Cat
-	def initalize
-	@name
-	@perferred_food
-	@meal_time
-end
+		def initialize(name, preferred_food, meal_time)
+		@name
+		@perferred_food
+		@meal_time
+		end
 
-def timeconverson
-	if @meal_time >= 12
-		thetime = @meal_time - 12
+		def name
+			@name
+		end
+
+		def perferred_food
+			@perferred_food
+		end
+
+		def timeconverson
+			thetime=0
+			if @meal_time >= 12
+				thetime = @meal_time - 12
 			return "#{time} a.m"
+
+				else
+					thetime = @meal_time
+				return "#{time} p.m"
+				end #ELSEWITHOUTRESCUEISUSELESSWHATDOYOUEVENMEAN
 			end
-	else
-		thetime = @meal_time
-			return "#{time} p.m"
-	end
+
+	 def meow
+			 "I'm #{name} I eat #{perferred_food} & I tend to eat around #{timeconverson} "
+	 end
 end
 
-def meow
-	puts "my name is #{@name} I perfer to eat #{@perferred_food} at #{@meal_time}"
-end
-CatMerlin = Cat.new
-@name = Merlin
-@perferred_food = birds
-@meal_time  = 17
+catmerlin = Cat.new("Merlin","birds",'17' )
 
-CatMisty= Cat.new
-@name = Misty
-@perferred_food = not birds
-@meal_time = 15
+catmisty = Cat.new("Misty", "not birds",'15' )
+
+puts catmerlin.meow
