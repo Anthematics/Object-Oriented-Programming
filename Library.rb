@@ -1,7 +1,7 @@
 
 require pry
 #binding.pry will force pry to pause on lines.
-lass Book
+class Book
 
 		@@onshelf = []
 		@@onloan = []
@@ -39,7 +39,7 @@ lass Book
 				@due_date=current_due_date
 				@@onloan<< self
 				@@on_shelf.delete(self)
-				return true
+				return trueon
 			end
 		end
 # BORROW This instance method is how a book is taken out of the library.
