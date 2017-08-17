@@ -13,8 +13,9 @@
 # The restart instance method should set all attributes back to their starting values (5, 0, and 10).
 require 'pry'
 	class Player
+@@playerlist = []
 
-		def initialize(name,gold_coins,health_points,lives)
+		def initialize(name)
 			@name = name
 			@gold_coins= 0
 			@health_points =10
@@ -25,8 +26,13 @@ require 'pry'
 			@name
 		end
 
-		def self.newplayer(name,gold_coins,health_points,lives)
-			newplayer = Player.new(name,gold_coins,health_points,lives)
+		def lives
+			@lives
+		end
+
+		def self.newplayer(name)
+			newplayer = Player.new(name)
+			@@playerlist << newplayer
 			newplayer
 		end
 
@@ -35,20 +41,30 @@ require 'pry'
 		end
 
 		def collect_treasure
-			@gold_coins +1
+			@gold_coins +=1
 			if @gold_coins *10
 				level_up
 			end
 		end
 
-		def do_battle(damage)
-			damage = @health_points -3
-			if @health_points <=0
-			@lives -1
+		def do_battle
+			@health_points = @health_points -3
+
+			if @health_points <= 2
+				@lives=@lives-1
+				@health_points = 10
+
+			elsif @lives==0
+				restart
+
 			end
 		end
 
-		def death
+		def healing
+		@health_points +3
+		end
+
+		def death(lives)
 			if lives <=1
 				restart
 			end
@@ -60,3 +76,16 @@ require 'pry'
 		@lives=5
 		end
 	end
+
+jason=Player.new("jason")
+matthew=Player.new("matthew")
+puts jason.inspect
+	jason.collect_treasure
+	jason.collect_treasure
+	jason.do_battle
+ puts jason.inspect
+jason.do_battle
+puts jason.inspect
+jason.do_battle
+jason.do_battle
+puts jason.inspect
