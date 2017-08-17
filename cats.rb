@@ -13,41 +13,40 @@
 # Call the meow method on each of the cats you instantiated in Step 3
 # Use puts to have the program output the result to the terminal
 # Once you're done, commit again!
-
-class Cat
-		def initialize(name, preferred_food, meal_time)
-		@name
-		@perferred_food
-		@meal_time
-		end
-
-		def name
-			@name
-		end
-
-		def perferred_food
-			@perferred_food
-		end
-
-		def timeconverson
-			thetime=0
-			if @meal_time >= 12
-				thetime = @meal_time - 12
-			return "#{time} a.m"
-
-				else
-					thetime = @meal_time
-				return "#{time} p.m"
-				end #ELSEWITHOUTRESCUEISUSELESSWHATDOYOUEVENMEAN
+require'pry'
+	class Cat
+			def initialize(name, preferred_food, meal_time)
+					 @name= name
+					 @preferred_food = preferred_food
+					 @meal_time = meal_time
 			end
 
-	 def meow
-			 "I'm #{name} I eat #{perferred_food} & I tend to eat around #{timeconverson} "
-	 end
-end
+			def name
+				@name
+			end
 
-catmerlin = Cat.new("Merlin","birds",'17' )
+			def self.createcat(name, preferred_food, meal_time)
+				createcat= Cat.new(name, preferred_food, meal_time)
+				createcat
+			end
 
-catmisty = Cat.new("Misty", "not birds",'15' )
+			def timeconverson
+					if @meal_time >= 12
+					 @meal_time - 12
+
+				 else
+					 @meal_time
+					end
+			end
+
+			def meow
+				 "I'm #{@name} I eat #{@preferred_food} & I tend to eat around #{timeconverson} "
+			end
+	end
+
+catmerlin = Cat.createcat("Merlin","birds", 17 )
+
+catmisty = Cat.createcat("Misty", "not birds",15 )
 
 puts catmerlin.meow
+puts catmisty.meow
