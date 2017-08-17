@@ -25,7 +25,7 @@ require 'pry'
 		end
 
 		def level_up
-			@lives +1
+			@lives=@lives +1
 			@level=@level+1
 		end
 
@@ -69,21 +69,3 @@ require 'pry'
 
 jason=Player.new("jason")
 matthew=Player.new("matthew")
-puts jason.inspect
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-	jason.collect_treasure
-
-puts jason.inspect
